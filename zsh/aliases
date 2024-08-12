@@ -1,0 +1,10 @@
+
+alias ls="ls --color"
+alias cdb="cd .."
+alias l="ls -la"
+alias cod="cd ~/code"
+alias z="vim ~/code/repos/dotfiles/zsh/zshrc"
+alias zs="source ~/.zshrc"
+alias alia="vim ~/code/repos/dotfiles/zsh/aliases"
+alias dotfiles="cd ~/code/repos/dotfiles/"
+

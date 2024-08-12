@@ -1,0 +1,3 @@
+syntax on
+set nu rnu
+source /home/akilambi/code/repos/dotfiles/vim/default_settings.vim
