@@ -9,6 +9,14 @@ ln -sf $zshrc_directory ~/.zshrc
 
 ls -la ~ | grep .zshrc
 
-echo "source $aliases_path" >> ~/.zshrc
+aliases_exists=$(cat ~/.zshrc | grep "$aliases_path")
+
+if [[ "$aliases_exists" == "" ]]; then
+    echo "aliases not sourced"
+    echo "source $aliases_path" >> ~/.zshrc
+else
+    echo "aliases already sourced. Exiting"
+fi
 
 exit 0
+

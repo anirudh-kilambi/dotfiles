@@ -23,7 +23,7 @@ if [[ "$plug_exists" == "" ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
-    echo "plug.vim exists in ~/.vim/autoload/. Not downloading"
+    echo "plug.vim exists in ~/.vim/autoload/. Not downloading."
 fi
 
 echo "----- installing nodejs -----"
