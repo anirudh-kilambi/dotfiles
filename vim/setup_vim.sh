@@ -70,5 +70,28 @@ for f in $files; do
     fi
 done
 
+
+# fzf tings
+echo "Installing FD"
+yay -S fd
+
+echo "Installing bat"
+yay -S bat
+
+#updating zshrc with fzf commands
+default_cmd_exists=$(cat ~/.zshrc | grep 'export FZF_DEFAULT_COMMAND="fd . $HOME"')
+ctrl_t_cmd_exists=$(cat ~/.zshrc | grep 'export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"')
+preview_cmd_exists=$(cat ~/.zshrc | grep 'export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always {} || cat {} || tree -C {}"')
+
+if [[ $default_cmd_exists == "" ]]; then
+    echo 'export FZF_DEFAULT_COMMAND="fd . $HOME"' >> ~/.zshrc
+fi
+if [[ $ctrl_t_cmd_exists == "" ]]; then
+    echo 'export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"' >> ~/.zshrc
+fi
+if [[ $preview_cmd_exists == "" ]]; then
+    echo 'export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always {} || cat {} || tree -C {}"' >> ~/.zshrc
+fi
+
 exit 0
 

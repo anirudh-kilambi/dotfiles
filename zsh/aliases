@@ -1,10 +1,15 @@
 
 alias ls="ls --color"
+alias grep='grep --color=auto'
 alias cdb="cd .."
-alias l="ls -la"
+alias l="ls -l"
+alias lsa="ls -la"
+alias docs="cd ~/Documents/"
+alias repos="cd ~/code/repos"
 alias cod="cd ~/code"
 alias z="vim ~/code/repos/dotfiles/zsh/zshrc"
 alias zs="source ~/.zshrc"
 alias alia="vim ~/code/repos/dotfiles/zsh/aliases"
 alias dotfiles="cd ~/code/repos/dotfiles/"
+alias kittyconf="vim ~/code/repos/dotfiles/kitty/kitty.conf"
 
