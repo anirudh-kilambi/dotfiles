@@ -1,9 +1,12 @@
-Plug 'preservim/nerdcommenter'
-Plug 'neoclide/coc.nvim', {'branch':'release'}
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'wesq3/vim-windowswap'
-Plug 'itchyny/lightline.vim'
-Plug '~/.fzf'
-Plug 'junegunn/fzf', { 'do': {-> fzf#install()}}
-Plug 'junegunn/fzf.vim'
+noremap <SPACE> <Nop>
+let mapleader=" "
+nnoremap <leader>t gt<CR>
+nnoremap <leader>c :noh<CR>
+"nnoremap <leader>f :FZF<CR>
+nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>t :vert term<CR>
+nnoremap <leader>b :ls<cr>:b<space>
+nnoremap <leader>l :ls<CR>
+nnoremap <leader>w :W<CR>
+let g:python_highlight_string_format=1
