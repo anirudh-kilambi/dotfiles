@@ -1,3 +1,15 @@
 syntax on
 set nu rnu
 source /home/akilambi/code/repos/dotfiles/vim/default_settings.vim
+call plug#begin() 
+    source /home/akilambi/code/repos/dotfiles/vim/plugins/plugins.vim 
+call plug#end()
+source /home/akilambi/code/repos/dotfiles/vim/plugins/coc.vim
+source /home/akilambi/code/repos/dotfiles/vim/plugins/copilot.vim
+source /home/akilambi/code/repos/dotfiles/vim/plugins/fzf.vim
+source /home/akilambi/code/repos/dotfiles/vim/plugins/gitgutter.vim
+source /home/akilambi/code/repos/dotfiles/vim/plugins/indentguides.vim
+source /home/akilambi/code/repos/dotfiles/vim/plugins/magit.vim
+source /home/akilambi/code/repos/dotfiles/vim/plugins/mappings.vim
+source /home/akilambi/code/repos/dotfiles/vim/plugins/tree.vim
+source /home/akilambi/code/repos/dotfiles/vim/plugins/window-swap.vim

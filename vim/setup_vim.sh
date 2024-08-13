@@ -1,8 +1,9 @@
 #!/bin/bash
 
 echo "----- Creating sym link to vimrc in root directory -----"
-vimrc_directory="$(pwd)/vimrc"
-vim_default_settings_path="$(pwd)/default_settings.vim"
+base_dir=$(pwd)
+vimrc_directory="$base_dir/vimrc"
+vim_default_settings_path="$base_dir/default_settings.vim"
 echo $vimrc_directory
 
 ln -sf $vimrc_directory ~/.vimrc
@@ -15,13 +16,11 @@ if [[ "$vimrc_contents" == "" ]]; then
     echo "source $vim_default_settings_path" >> ~/.vimrc
 fi
 
-
 echo "----- installing plug.vim -----"
 plug_exists=$(ls ~/.vim/autoload/ | grep plug.vim)
 if [[ "$plug_exists" == "" ]]; then
     echo "plug.vim not installed. Loading..."
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
     echo "plug.vim exists in ~/.vim/autoload/. Not downloading."
 fi
@@ -43,5 +42,33 @@ if [[ "$npm_exists" == "" ]]; then
 else
     echo "NPM installed. Skipping."
 fi
+
+echo "----- adding plugins.vim file -----"
+plugins_exists=$(cat ~/.vimrc | grep plugins.vim)
+if [[ "$plugins_exists" == "" ]]; then
+    echo "Sourcing Plugins"
+    echo "call plug#begin() 
+    source $base_dir/plugins/plugins.vim 
+call plug#end()" >> ~/.vimrc
+else
+    echo "Plugins Already Sourced. Continue."
+fi
+
+echo "----- Installing Plugins -----"
+vim -c 'PlugInstall' -c 'qa!'
+
+echo "----- Sourcing plugin .vim files -----"
+files=$(ls plugins/)
+
+for f in $files; do
+    echo "File => $f"
+    exists=$(cat ~/.vimrc | grep $f)
+    if [[ $exists == "" ]]; then
+        echo "source $base_dir/plugins/$f" >> ~/.vimrc
+    else
+        echo "$f has already been sourced. Continue."
+    fi
+done
+
 exit 0
 
