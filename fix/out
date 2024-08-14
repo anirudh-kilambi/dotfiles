@@ -1,0 +1,26 @@
+  943  systemctl
+  944  systemctl disable sddm
+  945  systemctl enable sddm
+  946  systemctl disable sddm
+  950  systemctl enable sddm
+  963  systemctl enable sdm
+  964  systemctl enable sddm
+ 1176  systemctl start plasma-kwin_x11.service
+ 1177  systemctl list-unit-files | grep enabled
+ 1178  systemctl list-unit-files 
+ 1179  systemctl list-unit-files | grep enabled
+ 1180  systemctl list-unit-files | grep plasma
+ 1182  history | grep systemctl
+ 1183  systemctl disable sddm
+ 1192  sudo systemctl enable sddm
+ 1210  systemctl disable sddm
+ 1305  systemctl --user akilambi status pulseaudio.service
+ 1306  systemctl --user status pulseaudio.service
+ 1307  systemctl enable pulseaudio.service
+ 1349  systemctl --user status alsa-restore.service
+ 1350  systemctl --user status alsa-restore
+ 1351  systemctl --user akilambi status pulseaudio.service
+ 1352  systemctl --user status pulseaudio.service
+ 1353  systemctl enable pulseaudio.service
+ 1358  systemctl --user status alsa-restore.service
+ 1359  systemctl --user status alsa-state.service

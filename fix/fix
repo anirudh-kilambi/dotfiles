@@ -1,0 +1,14 @@
+#pulseaudio-alsa
+Linux kernel comes with alsa for drivers. Need to install a sound server.
+Will try pulseaudio-alsa
+
+pacman -Sy pulseaudio
+pacman -Sy pulseaudio-alsa
+
+update .xinitrc with 
+```
+/usr/bin/pulseaudio &
+/usr/bin/start-pulseaudio-x11 &
+```
+
+prior to the `exec dwm` and all is well!

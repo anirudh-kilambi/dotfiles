@@ -24,7 +24,6 @@ set laststatus=2
 set shiftwidth=4
 set scrolloff=10
 set history=1000
-set colorcolumn=80
 set updatetime=300
 set wildmode=list:longest
 set list listchars=trail:-

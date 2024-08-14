@@ -16,7 +16,38 @@ alias gp="git push"
 alias ga="git add ."
 alias gs="git status"
 
+# git shit
 function gc {
     git commit -m $1
 }
+
+function vol {
+    /usr/bin/pulseaudio-ctl set $1
+}
+
+# tmux shit
+alias tl="tmux ls"
+
+function tw {
+    tmux new-window;
+    tmux rename-window $1;
+}
+
+function ta {
+    tmux attach $1
+}
+
+function tn {
+    tmux new-session;
+    tmux rename-session $1
+}
+
+# python virtual env shit
+#alias vnv="python3 -m venv" # bc I'm not writing out `python3 -m venv` every single time I want to call the library
+
+function vnv {
+    source "$HOME/.virtualenvs/$1/bin/activate"
+}
+
+
 
