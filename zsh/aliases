@@ -15,6 +15,7 @@ alias gpu="git pull"
 alias gp="git push"
 alias ga="git add ."
 alias gs="git status"
+alias chalice="cd ~/Documents/keyboards/qmk_firmware/keyboards/owlab/chalice/hotswap/"
 
 # git shit
 function gc {
@@ -44,6 +45,7 @@ function tn {
 
 # python virtual env shit
 #alias vnv="python3 -m venv" # bc I'm not writing out `python3 -m venv` every single time I want to call the library
+alias da="deactivate"
 
 function vnv {
     source "$HOME/.virtualenvs/$1/bin/activate"
