@@ -16,6 +16,7 @@ alias gp="git push"
 alias ga="git add ."
 alias gs="git status"
 alias chalice="cd ~/Documents/keyboards/qmk_firmware/keyboards/owlab/chalice/hotswap/"
+alias -- -="cd -"
 
 # git shit
 function gc {
