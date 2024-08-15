@@ -75,6 +75,13 @@ for f in $files; do
     fi
 done
 
+# update lightline.vim
+# I use the simpleblack colorscheme for lightline.vim (installed with onedark.vim) with a couple of changes. I save them under `plugins/statusbar.vim`.
+# Need to update the simpleblack.vim colorscheme that lives in ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/simpleblack.vim
+colorscheme="$base_dir/plugins/statusbar.vim"
+echo "updating colorscheme"
+
+cat $colorscheme > ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/simpleblack.vim
 
 # fzf tings
 echo "Installing FD"
