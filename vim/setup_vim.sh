@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "----- Uninstalling default VIM and compiling from source-----"
+mkdir -p $HOME/code/builds/
+git clone https://github.com/vim/vim.git
+cd $HOME/code/builds
+
 echo "----- Creating sym link to vimrc in root directory -----"
 base_dir=$(pwd)
 vimrc_directory="$base_dir/vimrc"

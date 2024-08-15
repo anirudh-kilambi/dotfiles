@@ -21,6 +21,8 @@ zstyle ':vcs_info:git:*' formats '%b '
 
 setopt PROMPT_SUBST
 PROMPT='%F{red}%*%f %F{cyan}%~%f %F{magenta}${vcs_info_msg_0_}%f$ '
+# sourcing of fzf keybindings and completion. This is important for dealing with vim keybinds in terminal
+# as vim keybinds override ctrl + commands.
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_COMMAND="fd -u . $HOME "
