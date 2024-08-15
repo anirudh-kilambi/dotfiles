@@ -25,9 +25,10 @@ set shiftwidth=4
 set scrolloff=10
 set history=1000
 set updatetime=300
-set clipboard=unnamed,unnamedplus
 set wildmode=list:longest
 set list listchars=trail:-
+set backspace=indent,eol,start
+set clipboard=unnamed,unnamedplus
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 augroup filetype_vim
