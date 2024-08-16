@@ -18,6 +18,7 @@ alias ga="git add ."
 alias gs="git status"
 alias chalice="cd ~/Documents/keyboards/qmk_firmware/keyboards/owlab/chalice/hotswap/"
 alias -- -="cd -"
+alias builddwm="makepkg -gL >> PKGBUILD && makepkg -efi"
 
 # git shit
 function gc {
@@ -41,8 +42,7 @@ function ta {
 }
 
 function tn {
-    tmux new-session;
-    tmux rename-session $1
+    tmux new -s "$1";
 }
 
 # python virtual env shit
