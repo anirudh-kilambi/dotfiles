@@ -1,0 +1,7 @@
+/*/usr/bin/pulseaudio &*/
+/*/usr/bin/start-pulseaudio-x11 &*/
+xrandr --output DP-0 --mode 2560x1440 --rate 165 &
+/*systemctl --user status pulseaudio.socket &*/
+/*exec dwm*
+exec ~/bin/startdwm
+
