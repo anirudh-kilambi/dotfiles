@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo "----- Uninstalling default VIM and compiling from source-----"
-mkdir -p $HOME/code/builds/
+mkdir -p $HOME/.builds/
 git clone https://github.com/vim/vim.git
-cd $HOME/code/builds
+cd $HOME/.builds/
 
 echo "----- Creating sym link to vimrc in root directory -----"
 base_dir=$(pwd)
-vimrc_directory="$base_dir/vimrc"
-vim_default_settings_path="$base_dir/default_settings.vim"
+vimrc_directory="$HOME/code/repos/dotfiles/vim/vimrc"
+vim_default_settings_path="$HOME/code/repos/dotfiles/vim/default_settings.vim"
 echo $vimrc_directory
 
 ln -sf $vimrc_directory ~/.vimrc
@@ -85,10 +85,11 @@ cat $colorscheme > ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/s
 
 # fzf tings
 echo "Installing FD"
-yay -S fd
+sudo pacman -S fd
 
 echo "Installing bat"
-yay -S bat
+sudo pacman -S bat
+
 
 #updating zshrc with fzf commands
 default_cmd_exists=$(cat ~/.zshrc | grep 'export FZF_DEFAULT_COMMAND="fd . $HOME"')

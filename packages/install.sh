@@ -1,7 +1,10 @@
 pacman -S spotify-tui
 pacman -S libreoffice-fresh
-yay -S slack-desktop
-yay -S pulseaudio-ctl
+
+# audio stuff
+pacman -S pulseaudio
+pacman -S pipewire
+pacman -S pipewire-docs
 
 # qmk stuff
 pacman -S dfu-util

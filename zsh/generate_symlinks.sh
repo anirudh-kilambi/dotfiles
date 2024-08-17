@@ -1,5 +1,6 @@
 #!/bin/bash
 
+pacman -S zsh
 echo "Creating sym link to zshrc in root directory"
 zshrc_directory="$(pwd)/zshrc"
 aliases_path="$(pwd)/aliases"

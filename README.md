@@ -5,6 +5,26 @@ This houses my vimrc, and zshrc along with config files for other packages I use
 ## VIMRC
 For the .vimrc, you can execute `setup.vim`
 
+## FIXES
+### Fuzzy looking suckless text
+If you install DWM, start your xserver, and think that things look really fuzzy. Specifically with respect to the terminal, `st`, and the default `dwm`
+text, that's because xorg doesn't know what fonts to use. Take a look at the xorg logs:
+` grep /fonts ~/.local/share/xorg/Xorg.0.log`
+You might see "folder not found" with respect to fonts. If that's the case, take a look and make sure you got some fonts:
+`fc-list ':' file`
+
+Update your `.xinitrc` with the following line:
+`xset + fp /usr/share/fonts/local/ &`
+Reload your xorg server and should be resolved.
+
+### Getting multimedia keys set up
+To determine what the multimedia keybind is, you can click your multimedia key after running `xbindkeys --keys`
+`xbindkeys --keys {press multimedia key}`
+That will tell you which keypress it is. For my case, with the Chalice40, I have it set up under `fix/get_working_multimedia_keys/xbindkeysrc`.
+Copy that to `~/.xbindkeysrc` and should be good. To ensure it starts up with your xorg server add this:
+`xbindkeys &`
+to your `.xinitrc`.
+
 ## I USE ARCH BTW
 
 My arch setup is a little wack. If I'm being completely honest, I just watched
@@ -27,3 +47,7 @@ The hope being to avoid any bloat in my load. I have a very barebones dwm setup,
 Realistically need to update the tab bar with some nice to have information (datetime is the only thing I *really* want. The rest I don't really care about).
 
 ![Picture attached.](./docs/dwm_preview_08_17_24.png)
+
+
+
+
