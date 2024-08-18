@@ -1,6 +1,7 @@
 pacman -S spotify-tui
 pacman -S libreoffice-fresh
-pacman -S less
+pacman -S "less"
+pacman -S man-pages
 
 # audio stuff
 pacman -S pulseaudio
