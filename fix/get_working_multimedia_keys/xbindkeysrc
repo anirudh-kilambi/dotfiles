@@ -10,3 +10,7 @@
 "pactl set-sink-mute @DEFAULT_SINK@ toggle"
    XF86AudioMute
 
+# Pause
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+   XF86AudioPlay
+

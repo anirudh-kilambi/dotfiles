@@ -32,6 +32,15 @@ Copy that to `~/.xbindkeysrc` and should be good. To ensure it starts up with yo
 
 to your `.xinitrc`.
 
+### Disable Mouse Acceleration
+To disable mouse accel permanently, copy `fix/disable_mouse_accel/40-libinput.conf` to `/etc/X11/xorg.conf.d/`.
+
+For a one time mouse accel disable:
+
+1. Determine input ID for your desired pointer object.
+2. `xinput set-prop "{input ID}" "libinput Accel Profile Enabled" 0 1 0`
+3. Profit
+
 ## I USE ARCH BTW
 
 My arch setup is a little wack. If I'm being completely honest, I just watched
