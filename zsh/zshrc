@@ -29,6 +29,56 @@ export FZF_DEFAULT_COMMAND="fd -u . $HOME "
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always {} || cat {} || tree -C {}"
 
+# aws login
+#export awsloginpath="/Users/Anirudh.Kilambi/code/repos/stgessappdev-aws-cli-federated-login-utility-edd11f2e0fea"
+export awsloginpath="~/.builds/stgessappdev-aws-cli-federated-login-utility-edd11f2e0fea"
+export cdl_bi_login_role_arn="arn:aws:iam::103620787458:role/cgna.Azure_CDL_BI_SuperAdmin"
+export cdl_bi_role_arn="arn:aws:iam::736888855894:role/cgna.CDL_BI_SuperAdmin"
+export cdletl_login_role_arn="arn:aws:iam::103620787458:role/cgna.Azure_CDLETL_DevOps2"
+export cdletldev_role_arn="arn:aws:iam::986831048533:role/cgna.DevOps2"
+export cdletlprod_role_arn="arn:aws:iam::386292561702:role/cgna.DevOps2"
+function awslogin() {
+    if [ $1 = "bi" ]; then
+        sed -i'' -e 's#"loginRoleArn" : .*# "loginRoleArn" : "'"$cdl_bi_login_role_arn"'",#g' $awsloginpath/config.json
+        sed -i'' -e 's#"roleArn" : .*# "roleArn" : "'"$cdl_bi_role_arn"'"#g' $awsloginpath/config.json
+    fi
+
+    if [ $1 = "dev" ]; then
+        sed -i'' -e 's#"loginRoleArn" : .*# "loginRoleArn" : "'"$cdletl_login_role_arn"'",#g' $awsloginpath/config.json
+        sed -i'' -e 's#"roleArn" : .*# "roleArn" : "'"$cdletldev_role_arn"'"#g' $awsloginpath/config.json
+    fi
+    
+    if [ $1 = "prod" ]; then
+        sed -i'' -e 's#"loginRoleArn" : .*# "loginRoleArn" : "'"$cdletl_login_role_arn"'",#g' $awsloginpath/config.json
+        sed -i'' -e 's#"roleArn" : .*# "roleArn" : "'"$cdletlprod_role_arn"'"#g' $awsloginpath/config.json
+    fi
+
+}
+
+function db() {
+     sudo DOCKER_BUILDKIT=1 docker build -t "$1" --secret id=aws,src=$HOME/.aws/credentials -f ~/code/repos/af2/dags/data_engineering/"$1"/contained_scripts/Dockerfile .
+}
+function dbeks() {
+     DOCKER_BUILDKIT=1 docker build -t "$1" --secret id=aws,src=$HOME/.aws/credentials -f ~/code/repos/dataops-eks-airflow/dags/data_engineering/"$1"/contained_scripts/Dockerfile .
+}
+
+function dr() {
+     sudo docker run -v $HOME/.aws/credentials:/root/.aws/credentials:ro "$1" 
+}
+
+function delete_untagged_images(){
+    docker rmi $(docker images --filter "dangling=true" -q --no-trunc) --force 
+}
+
+function docker_login(){
+     aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 736888855894.dkr.ecr.us-east-1.amazonaws.com
+     
+}
+function docker_login_new(){
+     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 986831048533.dkr.ecr.us-east-1.amazonaws.com
+}
+
+
 #History wrapper
 function omz_history {
   local clear list
@@ -71,6 +121,7 @@ setopt hist_verify            # show command with history expansion to user befo
 setopt share_history          # share command history dataetopt EXTENDED_HISTORY
 #export PYTHONPATH="/Users/Anirudh.Kilambi/code/repos/"
 source /home/anirudh/code/repos/dotfiles/zsh/aliases
+source ~/.builds/fzf-git.sh/fzf-git.sh
 export FZF_DEFAULT_COMMAND="fd . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always {} || cat {} || tree -C {}"

@@ -13,3 +13,5 @@ source /home/anirudh/code/repos/dotfiles/vim/plugins/magit.vim
 source /home/anirudh/code/repos/dotfiles/vim/plugins/mappings.vim
 source /home/anirudh/code/repos/dotfiles/vim/plugins/tree.vim
 source /home/anirudh/code/repos/dotfiles/vim/plugins/window-swap.vim
+
+au VimEnter * if eval("@%") == "" | e ~/scratch | endif

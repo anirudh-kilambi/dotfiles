@@ -3,7 +3,7 @@ alias grep='grep --color=auto'
 alias cdb="cd .."
 alias l="ls -l"
 alias lsa="ls -la"
-alias docs="cd ~/Documents/"
+alias docs="cd ~/gdrive/Documents/"
 alias repos="cd ~/code/repos"
 alias cod="cd ~/code"
 alias v="vim ~/code/repos/dotfiles/vim/vimrc"
@@ -16,13 +16,39 @@ alias gpu="git pull"
 alias gp="git push"
 alias ga="git add ."
 alias gs="git status"
-alias chalice="cd ~/Documents/keyboards/qmk_firmware/keyboards/owlab/chalice/hotswap/"
-alias -- -="cd -"
+alias chalice="cd $HOME/code/repos/qmk_firmware/keyboards/owlab/chalice/hotswap/"
+alias 0="cd -"
+alias 1="cd .."
+alias 2="cd ../.."
 alias builddwm="makepkg -gL >> PKGBUILD && makepkg -efi"
+alias dwmbuild="cd ~/.builds/dwm"
+alias adhoc="cd $HOME/code/adhoc"
+alias winvm="qemu-system-x86_64 -m 12G -enable-kvm -drive file=~/.vm/win10/win,format=raw -cpu host -smp cores=6 -vga std -usbdevice tablet"
+alias bran="git branch"
+alias uni="cd ~/gdrive/Documents/university/4a/"
+alias 480="cd ~/gdrive/Documents/university/4a/che_480/"
+alias 450="cd ~/gdrive/Documents/university/4a/che_450/"
+alias 100="cd ~/gdrive/Documents/university/4a/stv_100/"
+alias 522="cd ~/gdrive/Documents/university/4a/syde_522/"
+alias 490="cd ~/gdrive/Documents/university/4a/che_490/"
+alias 571="cd ~/gdrive/Documents/university/4a/che_571/"
+alias 403="cd ~/gdrive/Documents/university/4a/gene_403/"
+alias osleraf="cd ~/code/repos/osleraf/dags/data_engineering/"
+alias keyboards="cd ~/Documents/keyboards/anirudh"
+alias af="cd ~/code/repos/af2/"
+alias conf="cd ~/code/repos/conf"
+alias confnew="cd ~/code/repos/conf-new"
+alias afeks="cd ~/code/repos/eks-airflow/"
+alias infra="cd ~/code/repos/infra/"
+
 
 # git shit
 function gc {
     git commit -m $1
+}
+
+function check {
+    git checkout $1
 }
 
 function vol {
@@ -53,5 +79,12 @@ function vnv {
     source "$HOME/.virtualenvs/$1/bin/activate"
 }
 
+function 1 {
+    cd ..
+}
+
+function 2 {
+    cd ..; cd ..;
+}
 
 
