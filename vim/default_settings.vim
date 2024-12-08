@@ -31,6 +31,8 @@ set backspace=indent,eol,start
 set clipboard=unnamed,unnamedplus
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
+au VimEnter * if eval("@%") == "" | e ~/scratch | endif
+
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker

@@ -4,6 +4,7 @@ alias cdb="cd .."
 alias l="ls -l"
 alias lsa="ls -la"
 alias docs="cd ~/Documents/"
+alias drive="cd ~/gdrive/"
 alias repos="cd ~/code/repos"
 alias cod="cd ~/code"
 alias v="vim ~/code/repos/dotfiles/vim/vimrc"
@@ -16,13 +17,44 @@ alias gpu="git pull"
 alias gp="git push"
 alias ga="git add ."
 alias gs="git status"
+alias fet="git fetch"
+alias reb="git rebase"
 alias chalice="cd ~/Documents/keyboards/qmk_firmware/keyboards/owlab/chalice/hotswap/"
 alias -- -="cd -"
-alias builddwm="makepkg -gL >> PKGBUILD && makepkg -efi"
+alias builddwm="rm -f config.h; sudo make clean install"
+alias dwmconfig="vim ~/.builds/dwm/config.def.h"
+alias af="cd ~/code/repos/af2"
+alias snowconf="cd ~/code/repos/snowconf/"
+alias 1="cd .."
+alias 2="cd ../.."
+alias uni="cd ~/Documents/university/4a/"
+alias 403="cd ~/Documents/university/4a/gene_403/"
+alias 480="cd ~/Documents/university/4a/che_480/"
+alias 450="cd ~/Documents/university/4a/che_450/"
+alias 571="cd ~/Documents/university/4a/che_571/"
+alias 490="cd ~/Documents/university/4a/che_490/"
+alias 100="cd ~/Documents/university/4a/stv_100/"
+alias 522="cd ~/Documents/university/4a/syde_522/"
+alias bran="git branch"
+alias eksaf="cd ~/code/repos/eks-airflow/dags/data_engineering"
+alias oslerinfra="cd ~/code/repos/oslerinfra/"
+alias conf="cd ~/code/repos/conf/"
+alias confnew="cd ~/code/repos/conf-new/"
+alias pooja="cd ~/Documents/pooja/"
+alias getremote="git config --get remote.origin.url"
+alias osleraf="cd ~/code/repos/osleraf"
+alias oslerinfra="cd ~/code/repos/oslerinfra"
+alias oslerconf="cd ~/code/repos/osler-conf"
+alias infra="cd ~/code/repos/infra"
+
 
 # git shit
 function gc {
     git commit -m $1
+}
+
+function check {
+    git checkout $1
 }
 
 function vol {
@@ -45,13 +77,36 @@ function tn {
     tmux new -s "$1";
 }
 
+function rw {
+    tmux rename-window "$1";
+}
+
 # python virtual env shit
 #alias vnv="python3 -m venv" # bc I'm not writing out `python3 -m venv` every single time I want to call the library
 alias da="deactivate"
 
 function vnv {
-    source "$HOME/.virtualenvs/$1/bin/activate"
+    source "$HOME/.venv/$1/bin/activate"
 }
 
+
+# open shit
+function open {
+    xdg-open $1 &;
+}
+
+# docker shit
+func db() {
+    sudo docker build -t "$1" --secret id=aws,src=$HOME/.aws/credentials -f "$2" .
+}
+
+func dr() {
+    sudo docker run -v $HOME/.aws/credentials:/root/.aws/credentials:ro "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
+}
+
+func awslogin() {
+    cd ~/Documents/stgessappdev-aws-cli-federated-login-utility-edd11f2e0fea/;
+    npm run login;
+}
 
 
