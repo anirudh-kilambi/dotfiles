@@ -7,6 +7,7 @@ if [[ "$exists" == "nvim not found" ]]; then
     cd neovim;
     make CMAKE_BUILD_TYPE=Release;
     sudo make install
+    ln -s $(pwd)/config ~/.config/nvim
     exit 0
 else
     echo "neovim already installed"
