@@ -9,7 +9,7 @@ return {
             "vim", "lua", "c", "python", "java", "rust", "yaml", "markdown", "json"
           },
           highlight               = { enable = true },
-          indent                  = { enable = true },
+          indent                  = { enable = false },
           incremental_selection   = { enable = true }
         })
       end,
