@@ -7,6 +7,7 @@ local plugin_files = {
   "gitsigns",
   "lspconfig",
   "autocompletion",
+  "comment"
 }
 
 local plugins = {}
